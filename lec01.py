@@ -1,6 +1,12 @@
 # Типы данных и переменная
 # int, float, booleat, str, list, None
-'''
+
+
+import numbers
+
+# help(str) - справка
+
+
 value = None
 print(type(value))
 # print(type(a))
@@ -119,8 +125,8 @@ print(inverted)
 
 # Управляющая конструкция for
 # for i in enumeration: (итерируемый объект (список))
-    # operator 1
-    # operator 2
+# operator 1
+# operator 2
 
 for i in 1, 2, 3, 4, 5:
     print(i**2)
@@ -129,23 +135,27 @@ list = [1, 2, 3, 10, 5]
 for i in list:
     print(i**2)
 
-r = range(10) # выдает итератор от 0 до 9 если просто указать 10.
-r = range(10, 20) # если перечислить через запятую - выдет перечисление от первого числа до второго
-r = range(10, 20, 2) # если добавить третий аргумент, то он показывает приращение (т.е. +2)
-for i in r: # или for i in range(10):
+r = range(10)  # выдает итератор от 0 до 9 если просто указать 10.
+# если перечислить через запятую - выдет перечисление от первого числа до второго
+r = range(10, 20)
+# если добавить третий аргумент, то он показывает приращение (т.е. +2)
+r = range(10, 20, 2)
+for i in r:  # или for i in range(10):
     print(i)
-for i in 'qwerty': 
+for i in 'qwerty':
     print(i)
 
 # немного о строках
 text = 'съешт еще этих магких французских булок'
 print(len(text))                  # 39
 print('еще' in text)              # True
-print(text.isdigit())             # False (проверяет все ли элементы являются числами)
-print(text.islower())             # True (проверяет все ли элементы написаны на нижнем регистре)
-print(text.replace('еще', 'ЕЩЕ')) # заменяет одну строку на другую
+# False (проверяет все ли элементы являются числами)
+print(text.isdigit())
+# True (проверяет все ли элементы написаны на нижнем регистре)
+print(text.islower())
+print(text.replace('еще', 'ЕЩЕ'))  # заменяет одну строку на другую
 
-# help(str) - справка
+
 
 print(text[0])                    # с
 print(text[1])                    # ъ
@@ -153,13 +163,54 @@ print(text[1])                    # ъ
 print(text[len(text) - 1])        # к
 print(text[-5])                   # б (последний символ имеет индекс -1)
 print(text[:])                    # напечатает все элементы с 0 до последнего
-print(text[0:2])                  # съе
+print(text[0:2])                  # съе (от 0 индекса до 2 печатает все символы)
 print(text[2:9])                  # ешь еще
 print(text[6:-18])                # еще этих мягких
 print(text[0:len(text):6])        # сеикакл
 print(text[::6])                  # сеикакл
-text = text[2:9] + text [-5] + text[:2] # ...
-'''
+text = text[2:9] + text[-5] + text[:2]  # ...
+
+
+
+
+# Работа со списками
+
+# from turtle import color
+
+
+numbers = [1, 2, 3, 4, 5]
+print(type(numbers))
+ran = range(1, 6)
+print(ran)
+print(type(ran))
+numbers = list(ran)  # приведение типа range к типу list
+print(numbers)
+print(type(numbers))
+print(f'{len(numbers)} len')
+for i in numbers:
+    i = i * 2 # i*=2
+    print(i)
+print(numbers)
+
+
+
+# Добавление в списки
+
+# colors = ['red', 'green', 'blue']
+# for e in colors:
+#     print(e)                      # red green blue
+
+# for e in colors:
+#     print(e*2)                    # redred greengreen blueblue
+
+# colors.append('gray') # .append - добавить значение в конец списка
+# print(colors)
+# print(colors == ['red', 'green', 'blue', 'gray']) # True
+# colors.remove('red')  # del colors[0]             # удалить элемент
+
+
+
+# Функции
 
 def f(x):
     if x == 1:
@@ -168,3 +219,7 @@ def f(x):
         return 23
     else:
         return
+
+# arg = 2
+# print(f(arg))
+# print(type(f(arg)))

@@ -8,6 +8,9 @@
 # w - открытие для записи данных (перезаписывает все данне в файле на нужные)
 # w+, r+ 
 
+from itertools import count
+
+
 colors = ['red', 'green', 'blue3123']
 
 # Первый способ добавления данных в файл:
@@ -24,6 +27,7 @@ with open('file.txt', 'w') as data:
 
 # exit() # выход из программы. Дальше код не будет выполняться
 
+
 # Чтение данных из файла
 path = 'file.txt' # создаем путь к файлу
 data = open(path, 'r') # открываем в режиме чтения
@@ -31,9 +35,40 @@ for line in data: # пробегаем циклом по всем строчка
     print(line)
 data.close()
 
+
+
 # Использование функционала из другого файла
 # import lec01 # импортируем в этот код, код из соседнего файла
 # print(lec01.f(1)) # вызываем печать функции, которая находится в другом файле
 
-import lec01 as L1 # можно файлу дать краткое или более удобное название через 'as'
-print(L1.f(1)) # и тогда вызов этого файла уже будет проще
+# import lec01 as L1 # можно файлу дать краткое или более удобное название через 'as'
+# print(L1.f(2)) # и тогда вызов этого файла уже будет проще
+
+# Функция
+def new_string(symbol, count = 3):
+    return symbol * count
+
+print(new_string('!', 5))   # !!!!!
+print(new_string('!'))      # !!!
+print(new_string(4))        # 12
+print()
+
+def concatenatio(*params):
+    res: str = ""          # явное задание типа данных через двоеточние
+    for item in params:
+        res += item
+    return res
+
+print(concatenatio('a', 's', 'd', 'w'))   # asdw
+print(concatenatio('a', '1'))             # a1
+# print(concatenatio(1, 2, 3, 4))         # TypeError
+print()
+
+# Кортеж (tuple - неизменяемый "список"
+a = (3, 1, 41, 4) # Объявление кортежа
+print(a)          # (3, 1, 41, 4)
+print(a[-2])      # 41
+# a[0] = 12       # TypeError. Кортеж нельзя изменять
+
+for item in a:
+    print(item)
